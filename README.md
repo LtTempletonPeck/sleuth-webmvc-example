@@ -29,10 +29,10 @@ If you don't already have Kafka running, you can use our Docker image:
 $ docker run -d --name zipkin-kafka -p 19092:19092 openzipkin/zipkin-kafka
 ```
 
-In a separate tab or window, start each of [sleuth.webmvc.Frontend](/src/main/java/sleuth/webmvc/Frontend.java) and [sleuth.webmvc.Backend](/src/main/java/sleuth/webmvc/Backend.java):
+In a separate tab or window, start each of [sleuth.webmvc.frontend.Frontend](/src/main/java/sleuth/webmvc/Frontend.java) and [sleuth.webmvc.backend.Backend](/src/main/java/sleuth/webmvc/Backend.java):
 ```bash
-$ ./mvnw compile exec:java -Dexec.mainClass=sleuth.webmvc.Backend
-$ ./mvnw compile exec:java -Dexec.mainClass=sleuth.webmvc.Frontend
+$ ./mvnw compile exec:java -Dexec.mainClass=sleuth.webmvc.backend.Backend
+$ ./mvnw compile exec:java -Dexec.mainClass=sleuth.webmvc.frontend.Frontend
 ```
 
 Next, run [Zipkin](https://zipkin.io/), which stores and queries traces reported by the above services.

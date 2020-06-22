@@ -20,6 +20,7 @@
 
     <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
     <sleuth.version>2.2.3.RELEASE</sleuth.version>
+    <stream.version>Horsham.SR5</stream.version>
   </properties>
 
   <dependencies>
@@ -37,8 +38,8 @@
       <artifactId>spring-cloud-starter-zipkin</artifactId>
     </dependency>
     <dependency>
-       <groupId>org.springframework.kafka</groupId>
-       <artifactId>spring-kafka</artifactId>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-stream-kafka</artifactId>
     </dependency>
   </dependencies>
 
@@ -49,6 +50,13 @@
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-sleuth-dependencies</artifactId>
         <version>${sleuth.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-stream-dependencies</artifactId>
+        <version>${stream.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -76,7 +84,7 @@
           </execution>
         </executions>
         <configuration>
-          <mainClass>sleuth.webmvc.Backend</mainClass>
+          <mainClass>sleuth.webmvc.backend.Backend</mainClass>
           <classifier>exec</classifier>
           <executable>true</executable>
         </configuration>
